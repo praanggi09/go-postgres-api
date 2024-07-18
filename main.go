@@ -54,7 +54,7 @@ func main() {
 	log.Fatal(http.ListenAndServe(":8080", router))
 }
 
-func getResponses(ww http.ResponseWriter, rr *http.Request) {
+func getResponses(w http.ResponseWriter, r *http.Request) {
 	rows, err := db.Query("SELECT id, resourcepool, vmname, description, os, username, password, ip, hostname, provisionedSpace, usedSpace, memorySize, cpu, notes FROM SERVERS")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -101,4 +101,4 @@ func createResponse(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(response)
 }
 
-func getResponse(w http.ResponseWriter, r * )
+// func getResponse(w http.ResponseWriter, r *)
